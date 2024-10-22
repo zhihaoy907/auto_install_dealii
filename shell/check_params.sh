@@ -66,7 +66,6 @@ if [ $is_first_call = true ];then
 	echo "export SOURCE_PATH=../opensource" >> $PARAMS_FILE
 fi
 
-# 设置 CMake 缓存变量
 if [ "$WITH_P4EST" = true ]; then
     CMAKE_CACHE_VARS+="-DEAL_II_WITH_P4EST=ON -DDEAL_II_WITH_MPI=ON "
 	echo "export P4EST_INSTALL_DIR=$P4EST_INSTALL_DIR " >> $PARAMS_FILE
