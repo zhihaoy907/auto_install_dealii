@@ -1,0 +1,17 @@
+由于网络限制，请自行下载对应版本的软件压缩包放置该目录，仅支持tar.gz、tar、zip格式压缩文件：
+1、boost_1_84_0
+2、cmake-3.30.3
+3、curl-8.10.1
+4、dealii-9.5.0
+5、hdf5-1.8.21
+6、lapack-3.12.0
+7、lua-5.4.7
+8、mpich-4.2.1
+9、netcdf-c-4.3.2
+10、netcdf-fortran-4.4.2
+11、openssl-3.3.2
+12、p4est-2.8.6
+13、petsc-3.21.4
+14、petsc-pkg-fblaslapack-e8a03f57d64c（可省）
+15、Trilinos-trilinos-release-13-4-0
+16、zlib-1.3.1
