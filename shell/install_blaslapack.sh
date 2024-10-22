@@ -8,11 +8,11 @@ install_blaslapack(){
         echo "blaslapack already exist, please remove it, now skip install it"
         return
     fi
-	if [ ! -e $INSTLL_ROOT_PATH/lapack/lib ]; then
-   		mkdir -p $INSTLL_ROOT_PATH/lapack/lib
+	if [ ! -e $INSTLL_ROOT_PATH/lib ]; then
+   		mkdir -p $INSTLL_ROOT_PATH/lib
 	fi
-	if [ ! -e $INSTLL_ROOT_PATH/lapack/include ]; then
-		mkdir -p $INSTLL_ROOT_PATH/lapack/include
+	if [ ! -e $INSTLL_ROOT_PATH/include ]; then
+		mkdir -p $INSTLL_ROOT_PATH/include
     fi
 
     echo "try to install blaslapack..."
@@ -21,8 +21,8 @@ install_blaslapack(){
     make -j8
     cd LAPACKE
     make -j8
-    cp ../*.a $INSTLL_ROOT_PATH/lapack/lib
-    cp include/*.h $INSTLL_ROOT_PATH/lapack/include
+    cp ../*.a $INSTLL_ROOT_PATH/lib
+    cp include/*.h $INSTLL_ROOT_PATH/include
     echo "export LIBRARY_PATH=$LIBRARY_PATH:$INSTLL_ROOT_PATH/lib" >> $current_path/params
     echo "export CPATH=$CPATH:$INSTLL_ROOT_PATH/include" >> $current_path/params
 }
