@@ -82,7 +82,7 @@ install_trilinos() {
     -DCMAKE_VERBOSE_MAKEFILE=OFF                     \
     -DCMAKE_BUILD_TYPE=RELEASE                       \
     -DCMAKE_INSTALL_PREFIX:PATH=$INSTLL_ROOT_PATH/trilinos \
-	-DCMAKE_C_COMPILER:FILEPATH=$INSTLL_ROOT_PATH/mpich/bin/mpicc \
+    -DCMAKE_C_COMPILER:FILEPATH=$INSTLL_ROOT_PATH/mpich/bin/mpicc \
     -DCMAKE_CXX_COMPILER:FILEPATH=$INSTLL_ROOT_PATH/mpich/bin/mpicxx \
     -DTPL_Boost_INCLUDE_DIRS=$INSTLL_ROOT_PATH/boost/lib \
     -DTPL_Netcdf_LIBRARIES=$INSTLL_ROOT_PATH/netcdf4-needed/lib \
@@ -91,7 +91,7 @@ install_trilinos() {
     -DTPL_LAPACK_LIBRARIES=$INSTLL_ROOT_PATH/lapack/lib/liblapack.a \
    	..
 
-	make -j2 && make install
+    make -j2 && make install
     echo "trilinos has been installed"
 }
 
