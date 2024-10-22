@@ -10,7 +10,6 @@ is_first_call=true
 PARAMS_FILE="params"
 CMAKE_CACHE_FILE="cmakecache"
 
-# 处理命令行参数
 for arg in "$@"; do
     if [[ "$arg" == "--prefix="* ]]; then
         INSTALL_DIR="${arg#--prefix=}"
