@@ -1,10 +1,10 @@
 说明：
-1、需要有基本的安装环境
+1、需要有一些依赖的安装环境
 (1):gcc python3 gfrotran cmake Matio x11 m4
 (2):c++:build-essential
 (3):zlib:zlib1g-dev
-(4):cmake:libnghttp2-dev libidn2-0-dev libpsl-dev libssh2-1-dev(trilinos特性中的cmake依赖)
-(5):xml2-config:libxml2-dev(trilinos特性依赖)
+(4):cmake:libnghttp2-dev libidn2-0-dev libpsl-dev libssh2-1-dev
+(5):xml2-config:libxml2-dev
 sudo apt install gcc cmake build-essential gfortran zlib1g-dev libnghttp2-dev libidn2-0-dev libpsl-dev libssh2-1-dev libxml2-dev python3 libmatio-dev libx11-dev m4 -y
 
 2、编译dealii支持的选项 petsc、p4est、trilinos,使用--prefix指定安装目录,参考命令如下所示:
