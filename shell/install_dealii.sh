@@ -35,7 +35,22 @@ install_dealii() {
     	mkdir build
     fi
     cd build
-	cmake -DCMAKE_INSTALL_PREFIX=$INSTLL_ROOT_PATH/dealii $CMAKE_CACHE_VARS -DPETSC_DIR=$INSTLL_ROOT_PATH/petsc -DP4EST_DIR=$INSTLL_ROOT_PATH/p4est -DMPI_C_COMPILER=$INSTLL_ROOT_PATH/mpich/bin/mpicc -DMPI_CXX_COMPILER=$INSTLL_ROOT_PATH/mpich/bin/mpicxx -DMPI_Fortran_COMPILER=$INSTLL_ROOT_PATH/mpich/bin/mpif90 -DDEAL_II_MPI_FLAGS="-I$INSTLL_ROOT_PATH/mpich/include" -DDEAL_II_MPI_LINKER_FLAGS="-L$INSTLL_ROOT_PATH/mpich/lib -lmpich" -DTRILINOS_DIR=$INSTLL_ROOT_PATH/trilinos -DTPL_ENABLE_BLAS=ON -DTPL_ENABLE_LAPACK=ON -DCMAKE_CXX_STANDARD=17 -DCMAKE_CXX_STANDARD_REQUIRED=True ..
+    cmake -DCMAKE_INSTALL_PREFIX=$INSTLL_ROOT_PATH/dealii \
+        $CMAKE_CACHE_VARS \
+        -DPETSC_DIR=$INSTLL_ROOT_PATH/petsc \
+        -DP4EST_DIR=$INSTLL_ROOT_PATH/p4est \
+        -DMPI_C_COMPILER=$INSTLL_ROOT_PATH/mpich/bin/mpicc \
+        -DMPI_CXX_COMPILER=$INSTLL_ROOT_PATH/mpich/bin/mpicxx \
+        -DMPI_Fortran_COMPILER=$INSTLL_ROOT_PATH/mpich/bin/mpif90 \
+        -DTRILINOS_DIR=$INSTLL_ROOT_PATH/trilinos \
+        -DCMAKE_CXX_STANDARD=17 \
+        -DCMAKE_CXX_STANDARD_REQUIRED=True \
+        -DPYTHON_EXECUTABLE=$(which python3) \
+        -DPYTHON_INCLUDE_DIR=$(python3 -c "from distutils.sysconfig import get_python_inc; print(get_python_inc())") \
+        -DPYTHON_LIBRARY=$(python3 -c "import distutils.sysconfig as sysconfig; print(sysconfig.get_config_var('LIBDIR'))") \
+        -DDEAL_II_COMPONENT_PYTHON_BINDINGS=ON \
+        ..
+
 	make -j2 && make install
 	echo "dealii has been installed"
 }
