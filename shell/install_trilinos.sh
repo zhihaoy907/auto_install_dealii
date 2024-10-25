@@ -87,8 +87,8 @@ install_trilinos() {
     -DTPL_Boost_INCLUDE_DIRS=$INSTLL_ROOT_PATH/boost/lib \
     -DTPL_Netcdf_LIBRARIES=$INSTLL_ROOT_PATH/netcdf4-needed/lib \
     -DNetcdf_INCLUDE_DIRS=$INSTLL_ROOT_PATH/netcdf4-needed/include \
-    -DTPL_BLAS_LIBRARIES=$INSTLL_ROOT_PATH/lapack//lib/libblas.a \
-    -DTPL_LAPACK_LIBRARIES=$INSTLL_ROOT_PATH/lapack/lib/liblapack.a \
+    -D TPL_BLAS_LIBRARIES="$INSTLL_ROOT_PATH/lib/librefblas.a;gfortran;m" \
+    -D TPL_LAPACK_LIBRARIES="$INSTLL_ROOT_PATH/lib/liblapack.a;gfortran;m" \
    	..
 
     make -j2 && make install
