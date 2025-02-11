@@ -43,12 +43,15 @@ install_dealii() {
         -DMPI_CXX_COMPILER=$INSTLL_ROOT_PATH/mpich/bin/mpicxx \
         -DMPI_Fortran_COMPILER=$INSTLL_ROOT_PATH/mpich/bin/mpif90 \
         -DTRILINOS_DIR=$INSTLL_ROOT_PATH/trilinos \
+        -DSLEPC_DIR=$INSTLL_ROOT_PATH/slepc \
+        -DBOOST_ROOT=$INSTLL_ROOT_PATH/boost \
         -DCMAKE_CXX_STANDARD=17 \
-        -DCMAKE_CXX_STANDARD_REQUIRED=True \
-        -DPYTHON_EXECUTABLE=$(which python3) \
-        -DPYTHON_INCLUDE_DIR=$(python3 -c "from distutils.sysconfig import get_python_inc; print(get_python_inc())") \
-        -DPYTHON_LIBRARY=$(python3 -c "import distutils.sysconfig as sysconfig; print(sysconfig.get_config_var('LIBDIR'))") \
         -DDEAL_II_COMPONENT_PYTHON_BINDINGS=ON \
+        -DCMAKE_CXX_STANDARD_REQUIRED=True \
+        -DDEAL_II_WITH_PYTHON=ON \
+        -DPYTHON_EXECUTABLE=$(which python3) \
+        -DPYTHON_INCLUDE_DIR="$boost_python_DIR/include;$(python3 -c 'from distutils.sysconfig import get_python_inc; print(get_python_inc())')" \
+        -DPYTHON_LIBRARY="$boost_python_DIR/lib;$(python3 -c 'import distutils.sysconfig as sysconfig; print(sysconfig.get_config_var("LIBDIR"))')" \
         ..
 
 	make -j2 && make install
