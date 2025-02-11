@@ -13,19 +13,19 @@ install_boost() {
 	if [ -e $INSTLL_ROOT_PATH/boost ]; then
         echo "boost dir already exist, please remove it, now skip install it"
 		return
-    fi
+    	fi
 	echo "try to install boost..."
-    cd $BOOST_SOURCE_DIR
-    ./bootstrap.sh --prefix=$INSTLL_ROOT_PATH/boost
-    ./b2 && ./b2 install
+    	cd $BOOST_SOURCE_DIR
+    	./bootstrap.sh --prefix=$INSTLL_ROOT_PATH/boost
+    	./b2 && ./b2 install
 
 	if [ -e $INSTLL_ROOT_PATH/boost_python3 ]; then
         echo "boost_python3 dir already exist, please remove it, now skip install it"
-		return
-    fi
+	return
+    	fi
 	./bootstrap.sh --with-python=python3 --prefix=$INSTLL_ROOT_PATH/boost_python3
 	./b2 && ./b2 install
-    echo "boost has been installed"
+    	echo "boost has been installed"
 }
 
 install_boost "$@"
